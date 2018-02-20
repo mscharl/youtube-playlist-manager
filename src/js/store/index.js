@@ -8,6 +8,6 @@ Vue.use(vuex);
 
 export default new vuex.Store({
     modules: {
-        [moduleTypes.GOOGLE_AUTH]: google_auth
-    }
+        [moduleTypes.GOOGLE_AUTH]: google_auth,
+    },
 });

@@ -13,7 +13,7 @@
     import * as googleAuthGetters from '../store/google_auth/types/getters';
 
     export default {
-        name      : 'YoutubePlaylistManager',
+        name: 'YoutubePlaylistManager',
 
         components: {
             Login,
@@ -21,8 +21,8 @@
 
         computed: {
             ...mapGetters(storeModules.GOOGLE_AUTH, {
-                isSignedIn: googleAuthGetters.IS_SIGNED_IN
-            })
+                isSignedIn: googleAuthGetters.IS_SIGNED_IN,
+            }),
         },
 
         mounted() {
@@ -31,8 +31,8 @@
 
         methods: {
             ...mapActions(storeModules.GOOGLE_AUTH, {
-                initGoogleAuth: googleAuthActions.INIT
-            })
-        }
+                initGoogleAuth: googleAuthActions.INIT,
+            }),
+        },
     }
 </script>

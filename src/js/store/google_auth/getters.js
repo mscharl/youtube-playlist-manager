@@ -42,5 +42,5 @@ export default {
      */
     [types.SIGNING_IN](state) {
         return state.signingIn;
-    }
+    },
 }

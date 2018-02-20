@@ -25,5 +25,5 @@ export default {
      */
     [types.END_SIGN_IN](state) {
         state.signingIn = false;
-    }
+    },
 }
