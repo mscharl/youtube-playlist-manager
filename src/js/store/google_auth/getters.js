@@ -33,5 +33,14 @@ export default {
         }
 
         return state.authInstance.currentUser.get();
+    },
+
+    /**
+     * Flag that is true while a sign in process is running
+     * @param state
+     * @return {boolean}
+     */
+    [types.SIGNING_IN](state) {
+        return state.signingIn;
     }
 }

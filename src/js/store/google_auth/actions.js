@@ -22,17 +22,31 @@ export default {
             // Get API key and client ID from API Console.
             // 'scope' field specifies space-delimited list of access scopes.
             GoogleAPI().client.init({
-                apiKey: GOOGLE_AUTH.API_KEY,
-                clientId: GOOGLE_AUTH.CLIENT_ID,
+                apiKey       : GOOGLE_AUTH.API_KEY,
+                clientId     : GOOGLE_AUTH.CLIENT_ID,
                 discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
-                scope: 'https://www.googleapis.com/auth/youtube.force-ssl'
-            }).then(function () {
+                scope        : 'https://www.googleapis.com/auth/youtube.force-ssl',
+            }).then(function() {
                 context.commit(mutationTypes.SET_AUTH_INSTANCE, GoogleAPI().auth2.getAuthInstance());
-
-                // Handle initial sign-in state. (Determine if user is already signed in.)
-                // var user = GoogleAuth.currentUser.get();
-                // setSigninStatus();
             });
         });
-    }
+    },
+
+    /**
+     * Run the google sign in process
+     * @param context
+     * @return {Promise<void>}
+     */
+    [types.SIGN_IN](context) {
+        context.commit(mutationTypes.START_SIGN_IN);
+
+        const authInstance = context.state.authInstance;
+        return authInstance.signIn().then((user) => {
+            context.commit(mutationTypes.END_SIGN_IN);
+        }, (error) => {
+            context.commit(mutationTypes.END_SIGN_IN);
+            console.error(error);
+            // Silent Fail
+        });
+    },
 }
