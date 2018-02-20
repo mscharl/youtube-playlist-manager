@@ -14,8 +14,6 @@ export default {
      * @param {ActionContext} context
      */
     [types.INIT](context) {
-        context.commit(mutationTypes.IS_INITIALIZING);
-
         // Load the API's client and auth2 modules.
         // Calls the init function after the modules load.
         return GoogleAPI().load('client:auth2', () => {
@@ -29,11 +27,7 @@ export default {
                 discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
                 scope: 'https://www.googleapis.com/auth/youtube.force-ssl'
             }).then(function () {
-                context.commit(mutationTypes.FINISHED_INITIALIZING);
-                // GoogleAuth = gapi.auth2.getAuthInstance();
-
-                // Listen for sign-in state changes.
-                // GoogleAuth.isSignedIn.listen(updateSigninStatus);
+                context.commit(mutationTypes.SET_AUTH_INSTANCE, GoogleAPI().auth2.getAuthInstance());
 
                 // Handle initial sign-in state. (Determine if user is already signed in.)
                 // var user = GoogleAuth.currentUser.get();

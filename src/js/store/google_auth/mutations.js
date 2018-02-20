@@ -2,18 +2,12 @@ import * as types from './types/mutations';
 
 export default {
     /**
-     * Sets the init flag to true
+     * Store the given authentication instance
+     *
      * @param state
+     * @param authInstance
      */
-    [types.IS_INITIALIZING](state) {
-        state.initializing = true
-    },
-
-    /**
-     * Sets the init flag to false
-     * @param state
-     */
-    [types.FINISHED_INITIALIZING](state) {
-        state.initializing = false
+    [types.SET_AUTH_INSTANCE](state, authInstance) {
+        state.authInstance = authInstance
     }
 }

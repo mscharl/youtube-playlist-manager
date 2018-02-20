@@ -1,2 +1,1 @@
-export const IS_INITIALIZING = 'isInitializing';
-export const FINISHED_INITIALIZING = 'finishedInitializing';
+export const SET_AUTH_INSTANCE = 'setAuthInstance';
