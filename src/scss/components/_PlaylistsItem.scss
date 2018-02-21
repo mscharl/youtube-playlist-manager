@@ -1,0 +1,50 @@
+.PlaylistsItem {
+    padding: .625em 1em;
+    border-bottom: 1px solid $border-color;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    &:hover {
+        background-color: $border-color;
+    }
+
+    &__image {
+        flex: 0 0 2.4em;
+
+        width: 2.4em;
+        height: 2.4em;
+
+        border-radius: 100%;
+
+        background-position: center center;
+        background-size: cover;
+
+        margin-right: .625em;
+    }
+
+    &__title {
+        font-size: 1em;
+        margin: 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    &__description {
+        font-size: .6em;
+        color: $text-muted;
+    }
+
+    &__content {
+        flex: 1 1 auto;
+
+        width: 50%;
+
+        margin-right: .625em;
+    }
+}

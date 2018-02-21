@@ -18,4 +18,8 @@ export default {
     [types.CAN_LOAD_MORE](state) {
         return state.nextPageToken !== null;
     },
+
+    [types.FETCHING_ITEMS](state) {
+        return state.fetchingItems;
+    },
 }

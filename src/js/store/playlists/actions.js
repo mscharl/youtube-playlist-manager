@@ -21,7 +21,7 @@ export default {
                     'id', 'status', 'snippet', 'contentDetails',
                 ].join(','),
                 mine      : true,
-                maxResults: 5,
+                maxResults: 50,
                 pageToken,
             },
         }).then((response) => {

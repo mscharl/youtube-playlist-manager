@@ -1,11 +1,11 @@
 <template>
     <section class="Playlists">
-        <div v-for="playlist in playlists">
-            {{ playlist.snippet.title }}
-        </div>
-        <button class="btn btn-outline-primary" v-if="canLoadMore" @click="loadNextPage" :disabled="fetchingItems">
-            Load more entries
-        </button>
+        <playlists-item :playlist="playlist" v-for="playlist in playlists"></playlists-item>
+        <footer class="Playlists__footer">
+            <button class="btn btn-outline-primary" v-if="canLoadMore" @click="loadNextPage" :disabled="fetchingItems">
+                Load more entries
+            </button>
+        </footer>
     </section>
 </template>
 
@@ -14,13 +14,16 @@
     import * as storeModules from '../store/types/modules';
     import * as playlistsActions from '../store/playlists/types/actions';
     import * as playlistsGetters from '../store/playlists/types/getters';
+    import PlaylistsItem from './PlaylistsItem';
 
     const { mapGetters, mapActions } = createNamespacedHelpers(storeModules.PLAYLISTS);
 
     export default {
         name: 'Playlists',
 
-        components: {},
+        components: {
+            PlaylistsItem,
+        },
 
         computed: {
             ...mapGetters({
