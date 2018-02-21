@@ -7,6 +7,10 @@
 // Color system
 //
 
+$youtube-red: #FF0000;
+$youtube-white: #FFFFFF;
+$youtube-black: #282828;
+
 // stylelint-disable
 $white: #FFFFFF;
 $gray-100: #F8F9FA;
@@ -61,14 +65,14 @@ $colors: map-merge((
         "gray-dark": $gray-800
 ), $colors);
 
-$primary: $blue;
-$secondary: $gray-600;
+$primary: $youtube-red;
+$secondary: $youtube-black;
 $success: $green;
 $info: $cyan;
 $warning: $yellow;
 $danger: $red;
-$light: $gray-100;
-$dark: $gray-800;
+$light: $youtube-white;
+$dark: $youtube-black;
 
 $theme-colors: ();
 $theme-colors: map-merge((
@@ -139,7 +143,7 @@ $sizes: map-merge((
 // Settings for the `<body>` element.
 
 $body-bg: $white;
-$body-color: $gray-900;
+$body-color: $youtube-black;
 
 // Links
 //

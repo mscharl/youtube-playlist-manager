@@ -4,7 +4,7 @@
             <h1 class="Login__title">Welcome to Youtube Playlist Manager</h1>
             <p class="Login__description" v-if="!isSignedIn && isInitialized">To use this tool please connect with your Google/Youtube Account</p>
         </header>
-        <button class="btn btn-outline-primary" @click="signIn" :disabled="loading">
+        <button class="btn btn-outline-light btn-lg" @click="signIn" :disabled="loading">
 
             <span v-if="!isInitialized">Initializing</span>
             <span v-if="signingIn">Loading …</span>
