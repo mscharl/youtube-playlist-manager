@@ -1,0 +1,21 @@
+.App {
+    display: flex;
+
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 100vw;
+    height: 100vh;
+
+    &__sidebar {
+        width: 20%;
+        min-width: 200px;
+
+        flex: 0 0 auto;
+    }
+
+    &__content {
+        flex: 1 1 100%;
+    }
+}
