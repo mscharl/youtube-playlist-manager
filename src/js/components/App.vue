@@ -5,7 +5,9 @@
                 <aside class="App__sidebar">
                     <playlists></playlists>
                 </aside>
-                <section class="App__content">Content</section>
+                <section class="App__content">
+                    <router-view></router-view>
+                </section>
             </main>
         </authentication-wall>
     </div>

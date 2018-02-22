@@ -1,5 +1,5 @@
 <template>
-    <article class="PlaylistsItem">
+    <router-link tag="article" :to="{name: 'playlist', params: {playlistId: playlist.id}}" class="PlaylistsItem">
         <div class="PlaylistsItem__image" :style="{backgroundImage: `url(${playlist.snippet.thumbnails.default.url})`}"></div>
         <div class="PlaylistsItem__content">
             <h3 class="PlaylistsItem__title">
@@ -10,7 +10,7 @@
             </p>
         </div>
         <span class="badge badge-primary ml-auto">{{ playlist.contentDetails.itemCount }}</span>
-    </article>
+    </router-link>
 </template>
 
 <script>
