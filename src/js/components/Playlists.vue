@@ -1,6 +1,6 @@
 <template>
     <section class="Playlists">
-        <playlists-item :playlist="playlist" v-for="playlist in playlists"></playlists-item>
+        <playlists-item :playlist="playlist" v-for="playlist in playlists" :key="playlist.id"></playlists-item>
         <footer class="Playlists__footer">
             <button class="btn btn-outline-primary" v-if="canLoadMore" @click="loadNextPage" :disabled="fetchingItems">
                 Load more entries
