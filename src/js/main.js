@@ -16,6 +16,11 @@ new Vue({
 
     mounted() {
         this.initGoogleAuth();
+
+        // Initialize watcher for playlist id
+        store.watch((state) => state.route.params.playlistId, (value, oldValue) => {
+            console.log(value, oldValue);
+        });
     },
 
     methods: {
