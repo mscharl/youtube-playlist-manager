@@ -32,6 +32,10 @@ button to delete them from the playlist.
 To simplify selecting multiple videos a filterbar is available to filter videos
 by the uploaded time, inserted time or name of the video.
 
+- [ ] __Implement Caching__:
+Items of a playlist should be cached locally. Invalidation should be done by
+checking the e-tag that is given by the `list` method of the playlists.
+
 ## Build Setup
 
 ``` bash
