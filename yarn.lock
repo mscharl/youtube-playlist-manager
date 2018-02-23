@@ -1427,8 +1427,8 @@ css-color-names@0.0.4:
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
 
 css-loader@^0.28.7:
-  version "0.28.9"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.9.tgz#68064b85f4e271d7ce4c48a58300928e535d1c95"
+  version "0.28.10"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.10.tgz#40282e79230f7bcb4e483efa631d670b735ebf42"
   dependencies:
     babel-code-frame "^6.26.0"
     css-selector-tokenizer "^0.7.0"
@@ -2012,8 +2012,8 @@ faye-websocket@~0.11.0:
     websocket-driver ">=0.5.1"
 
 file-loader@^1.1.4:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.7.tgz#0a3ad0fe81695feeed6f2dac324fce500c30f0a0"
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.9.tgz#cf152aedbcfb3d67038d0845efb7cf11a96e53de"
   dependencies:
     loader-utils "^1.0.2"
     schema-utils "^0.4.5"
