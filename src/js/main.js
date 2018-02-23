@@ -25,12 +25,6 @@ new Vue({
         };
 
         waitForGoogle();
-
-        // Initialize watcher for playlist id
-        // TODO: decide if store plugin, watcher in main file or dispatch in playlist lifecycle method
-        store.watch((state) => state.route.params.playlistId, (value, oldValue) => {
-            console.log(value, oldValue);
-        });
     },
 
     methods: {
