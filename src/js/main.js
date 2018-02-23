@@ -15,7 +15,16 @@ new Vue({
     render: h => h(App),
 
     mounted() {
-        this.initGoogleAuth();
+        const waitForGoogle = () => {
+            if(window.gapi) {
+                this.initGoogleAuth();
+            }
+            else {
+                setTimeout(waitForGoogle, 100);
+            }
+        };
+
+        waitForGoogle();
 
         // Initialize watcher for playlist id
         // TODO: decide if store plugin, watcher in main file or dispatch in playlist lifecycle method
