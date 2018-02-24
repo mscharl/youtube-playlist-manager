@@ -4,12 +4,16 @@
             <h1 class="Login__title">Welcome to Youtube Playlist Manager</h1>
             <p class="Login__description" v-if="!isSignedIn && isInitialized">To use this tool please connect with your Google/Youtube Account</p>
         </header>
-        <button class="btn btn-outline-light btn-lg" @click="signIn" :disabled="loading">
+        <atomic-button class="btn btn-outline-light btn-lg"
+                       :disabled="loading"
+                       :activity="loading"
+                       @click="signIn"
+        >
 
             <span v-if="!isInitialized">Initializing</span>
-            <span v-if="signingIn">Loading …</span>
+            <span v-if="signingIn">Loading</span>
             <span v-if="!loading">Sign in with Google</span>
-        </button>
+        </atomic-button>
     </section>
 </template>
 
@@ -18,11 +22,13 @@
     import * as storeModules from '../store/types/modules';
     import * as googleAuthActions from '../store/google_auth/types/actions';
     import * as googleAuthGetters from '../store/google_auth/types/getters';
+    import AtomicButton from '../atoms/AtomicButton';
 
     const { mapActions, mapGetters } = createNamespacedHelpers(storeModules.GOOGLE_AUTH);
 
     export default {
-        name: 'Login',
+        components: { AtomicButton },
+        name      : 'Login',
 
         computed: {
             ...mapGetters({

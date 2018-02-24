@@ -2,9 +2,14 @@
     <section class="Playlists">
         <playlists-item :playlist="playlist" v-for="playlist in playlists" :key="playlist.id"></playlists-item>
         <footer class="Playlists__footer">
-            <button class="btn btn-outline-primary" v-if="canLoadMore" @click="loadNextPage" :disabled="fetchingItems">
+            <atomic-button class="btn-outline-primary"
+                           v-if="canLoadMore"
+                           :disabled="fetchingItems"
+                           :activity="fetchingItems"
+                           @click="loadNextPage"
+            >
                 Load more entries
-            </button>
+            </atomic-button>
         </footer>
     </section>
 </template>
@@ -15,6 +20,7 @@
     import * as playlistsActions from '../store/playlists/types/actions';
     import * as playlistsGetters from '../store/playlists/types/getters';
     import PlaylistsItem from './PlaylistsItem';
+    import AtomicButton from '../atoms/AtomicButton';
 
     const { mapGetters, mapActions } = createNamespacedHelpers(storeModules.PLAYLISTS);
 
@@ -22,6 +28,7 @@
         name: 'Playlists',
 
         components: {
+            AtomicButton,
             PlaylistsItem,
         },
 
