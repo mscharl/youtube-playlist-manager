@@ -4,8 +4,8 @@ import HomeScreen from '../components/HomeScreen.vue'
 import Playlist from '../components/Playlist.vue'
 
 export default new VueRouter({
-    mode  : 'hash',
-    routes: [
+    mode                : 'hash',
+    routes              : [
         {
             path     : '/',
             name     : 'home',
@@ -16,4 +16,6 @@ export default new VueRouter({
             component: Playlist,
         },
     ],
+    linkActiveClass     : '--active',
+    linkExactActiveClass: '--exact-active',
 });
