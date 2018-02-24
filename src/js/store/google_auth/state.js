@@ -1,4 +1,5 @@
 export default {
-    authInstance: null,
-    signingIn   : false,
+    initialized: false,
+    signingIn  : false,
+    isSignedIn : false,
 }

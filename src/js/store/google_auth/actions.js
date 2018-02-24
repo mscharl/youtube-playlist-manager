@@ -26,8 +26,15 @@ export default {
                 clientId     : GOOGLE_AUTH.CLIENT_ID,
                 discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
                 scope        : 'https://www.googleapis.com/auth/youtube.force-ssl',
-            }).then(function() {
-                context.commit(mutationTypes.SET_AUTH_INSTANCE, GoogleAPI().auth2.getAuthInstance());
+            }).then(() => {
+                const googleAuth = GoogleAPI().auth2.getAuthInstance();
+
+                context.commit(mutationTypes.SET_INITIALIZED, true);
+                context.commit(mutationTypes.SET_SIGNED_IN, googleAuth.isSignedIn.get());
+
+                googleAuth.isSignedIn.listen((isSignedIn) => {
+                    context.commit(mutationTypes.SET_SIGNED_IN, isSignedIn);
+                });
             });
         });
     },
@@ -40,7 +47,8 @@ export default {
     [types.SIGN_IN](context) {
         context.commit(mutationTypes.START_SIGN_IN);
 
-        const authInstance = context.state.authInstance;
+        const authInstance = GoogleAPI().auth2.getAuthInstance();
+
         return authInstance.signIn().then((user) => {
             context.commit(mutationTypes.END_SIGN_IN);
         }, (error) => {

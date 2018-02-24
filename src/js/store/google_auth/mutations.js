@@ -1,14 +1,14 @@
 import * as types from './types/mutations';
 
 export default {
+
     /**
-     * Store the given authentication instance
-     *
+     * Set the initialized flag
      * @param state
-     * @param authInstance
+     * @param isInitialized
      */
-    [types.SET_AUTH_INSTANCE](state, authInstance) {
-        state.authInstance = authInstance
+    [types.SET_INITIALIZED](state, isInitialized) {
+        state.initialized = isInitialized;
     },
 
     /**
@@ -25,5 +25,14 @@ export default {
      */
     [types.END_SIGN_IN](state) {
         state.signingIn = false;
+    },
+
+    /**
+     * Flag to indicate whether a user is signed in
+     * @param state
+     * @param isSignedIn
+     */
+    [types.SET_SIGNED_IN](state, isSignedIn) {
+        state.isSignedIn = isSignedIn;
     },
 }

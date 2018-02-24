@@ -1,5 +1,7 @@
 import * as types from './types/getters';
 
+const GoogleAPI = () => window.gapi;
+
 export default {
     /**
      * Flag to indicate if the google api is initialized
@@ -8,7 +10,7 @@ export default {
      * @return {boolean}
      */
     [types.IS_INITIALIZED](state) {
-        return !!state.authInstance
+        return state.initialized && !!GoogleAPI().auth2.getAuthInstance();
     },
 
     /**
@@ -19,7 +21,7 @@ export default {
      * @return {boolean}
      */
     [types.IS_SIGNED_IN](state, getters) {
-        return getters[types.IS_INITIALIZED] && state.authInstance.isSignedIn.get();
+        return getters[types.IS_INITIALIZED] && state.isSignedIn;
     },
 
     /**
@@ -32,7 +34,7 @@ export default {
             return null
         }
 
-        return state.authInstance.currentUser.get();
+        return GoogleAPI().auth2.getAuthInstance().currentUser.get();
     },
 
     /**

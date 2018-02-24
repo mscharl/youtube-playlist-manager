@@ -9,8 +9,7 @@ import videos from './videos';
 Vue.use(vuex);
 
 export default new vuex.Store({
-    // TODO: Strict mode causes `Maximum call stack size exceeded`
-    // strict: process.env.NODE_ENV !== 'production',
+    strict: process.env.NODE_ENV !== 'production',
 
     modules: {
         [moduleTypes.GOOGLE_AUTH]: google_auth,
