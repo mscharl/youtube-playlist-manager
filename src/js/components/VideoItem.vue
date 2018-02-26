@@ -27,8 +27,14 @@
                 return trim.length < description.length ? `${trim}…` : trim;
             },
             imageStyle() {
-                return {
-                    backgroundImage: `url('${this.video.snippet.thumbnails.high.url}')`,
+                try {
+                    const url = this.video.snippet.thumbnails.high.url;
+
+                    return {
+                        backgroundImage: `url('${url}')`,
+                    }
+                } catch(e) {
+                    console.info('Thumbnail not available %o %o', this.video.snippet.resourceId.videoId, this.video);
                 }
             },
         },
