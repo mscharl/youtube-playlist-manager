@@ -1,11 +1,9 @@
 <template>
-    <div>
-        Playlist
-        <ul>
-            <li v-for="video in videos">{{ video.id }}</li>
-        </ul>
-        <template v-if="canLoadMore">
-            <atomic-button class="btn-outline-primary"
+    <section class="Playlist">
+        <video-item v-for="video in videos" :video="video" :key="video.id"></video-item>
+
+        <div class="Playlist__footer" v-if="canLoadMore">
+            <atomic-button class="btn-outline-primary btn-sm"
                            :disabled="fetchingItems"
                            :activity="fetchingItems && !fetchingAllItems"
                            @click="loadNextPage"
@@ -13,15 +11,15 @@
                 Load more entries
             </atomic-button>
             or
-            <atomic-button class="btn-outline-dark"
+            <atomic-button class="btn-outline-dark btn-sm"
                            :disabled="fetchingItems"
                            :activity="fetchingAllItems"
                            @click="loadAllPages"
             >
                 Load all entries
             </atomic-button>
-        </template>
-    </div>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -30,12 +28,14 @@
     import * as videosActions from '../store/videos/types/actions';
     import * as videosGetters from '../store/videos/types/getters';
     import AtomicButton from '../atoms/AtomicButton';
+    import VideoItem from './VideoItem';
 
     const { mapGetters, mapActions } = createNamespacedHelpers(storeModules.VIDEOS);
 
     export default {
         name      : 'Playlist',
         components: {
+            VideoItem,
             AtomicButton,
         },
 
