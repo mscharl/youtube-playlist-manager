@@ -17,12 +17,20 @@
     import AuthenticationWall from './AuthenticationWall';
     import Playlists from './Playlists';
 
+    import IntersectionObserver from '../classes/IntersectionObserver';
+
     export default {
         name: 'YoutubePlaylistManager',
 
         components: {
             AuthenticationWall,
             Playlists,
-        }
+        },
+
+        provide() {
+            return {
+                intersectionObserver: new IntersectionObserver(),
+            }
+        },
     }
 </script>
