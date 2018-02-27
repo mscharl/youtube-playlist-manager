@@ -17,8 +17,8 @@ Show all playlists with title, thumbnail, description and item count. At first,
 50 playlists will be loaded. If the user owns more playlists than currently
 shown a button is displayed to load 50 more playlists.~~
 
-- [ ] __Show videos of a playlist__:
-When a playlist is selected the videos are shown
+- [x] ~~__Show videos of a playlist__:
+When a playlist is selected the videos are shown~~
 
 - [ ] __Move videos__:
 Videos of a playlist can be moved to another playlist by selecting one or more
