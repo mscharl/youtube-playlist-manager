@@ -1,8 +1,10 @@
 <template>
     <section class="Playlist">
-        <video-item v-for="video in videos" :video="video" :key="video.id"></video-item>
+        <section class="Playlist__items">
+            <video-item v-for="video in videos" :video="video" :key="video.id"></video-item>
+        </section>
 
-        <div class="Playlist__footer" v-if="canLoadMore">
+        <footer class="Playlist__footer" v-if="canLoadMore">
             <atomic-button class="btn-outline-primary btn-sm"
                            :disabled="fetchingItems"
                            :activity="fetchingItems && !fetchingAllItems"
@@ -18,7 +20,7 @@
             >
                 Load all entries
             </atomic-button>
-        </div>
+        </footer>
     </section>
 </template>
 

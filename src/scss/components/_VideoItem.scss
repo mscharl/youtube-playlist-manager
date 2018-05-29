@@ -1,12 +1,15 @@
 .VideoItem {
+    position: relative;
     display: grid;
-    grid-template-columns: 180px auto;
+    grid-template-columns: 2em 180px auto;
     grid-template-rows: auto auto;
-    grid-template-areas: "image title" "image description";
+    grid-template-areas: "select image title" "select image description";
     grid-column-gap: .625em;
 
     padding: .375em .625em;
     border-bottom: 1px solid $border-color;
+
+    min-width: 100%;
 
     &__image {
         &:before {
@@ -40,5 +43,18 @@
 
         font-size: .9em;
         color: $text-muted;
+    }
+
+    &__checkbox {
+        grid-area: select;
+        align-self: center;
+        justify-self: center;
+    }
+
+    &:hover {
+        background-color: rgba($youtube-red, .05);
+    }
+    &.--selected {
+        background-color: rgba($youtube-red, .08);
     }
 }

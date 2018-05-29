@@ -21,6 +21,7 @@ export default {
     /**
      * Load all videos from the selected playlist
      * @param context
+     * @param pageToken
      * @return {Promise<void>}
      */
     [types.GET_PAGE](context, pageToken = null) {
@@ -52,10 +53,22 @@ export default {
         });
     },
 
+    /**
+     * Load the next page based on the stored page token
+     *
+     * @param context
+     * @return {Promise<void>}
+     */
     [types.GET_NEXT_PAGE](context) {
         return context.dispatch(types.GET_PAGE, context.state.nextPageToken);
     },
 
+    /**
+     * Keeps calling the next page action until all pages are loaded
+     *
+     * @param context
+     * @return {Promise<void>}
+     */
     [types.GET_ALL_PAGES](context) {
         context.commit(mutationTypes.SET_FETCHING_ALL_ITEMS);
 
@@ -74,5 +87,21 @@ export default {
             context.commit(mutationTypes.RESET_FETCHING_ALL_ITEMS);
             return Promise.reject(error);
         })
+    },
+
+    /**
+     * Select or deselect a video
+     *
+     * @param context
+     * @param video
+     */
+    [types.TOGGLE_SELECTION](context, video) {
+        const isSelected = context.state.selectedVideos.indexOf(video.id) !== -1;
+
+        if (isSelected) {
+            context.commit(mutationTypes.DESELECT_VIDEO, video.id);
+        } else {
+            context.commit(mutationTypes.SELECT_VIDEO, video.id);
+        }
     },
 }

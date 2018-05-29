@@ -1,6 +1,9 @@
 .AtomicCheckbox {
+    display: block;
     position: relative;
     overflow: hidden;
+
+    margin: 0;
 
     input {
         position: absolute;

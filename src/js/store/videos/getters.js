@@ -26,4 +26,8 @@ export default {
     [types.FETCHING_ALL_ITEMS](state) {
         return state.fetchingAllItems;
     },
+
+    [types.IS_SELECTED_GETTER](state) {
+        return (videoId) => (state.selectedVideos.indexOf(videoId) !== -1)
+    },
 }

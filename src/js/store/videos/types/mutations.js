@@ -5,3 +5,5 @@ export const RESET_FETCHING_ITEMS     = 'resetFetchingItems';
 export const RESET_ITEMS              = 'resetItems';
 export const SET_FETCHING_ALL_ITEMS   = 'setFetchingAllItems';
 export const RESET_FETCHING_ALL_ITEMS = 'resetFetchingAllItems';
+export const DESELECT_VIDEO = 'deselectVideo';
+export const SELECT_VIDEO = 'selectVideo';

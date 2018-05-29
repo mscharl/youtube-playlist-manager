@@ -64,4 +64,27 @@ export default {
     [types.RESET_FETCHING_ALL_ITEMS](state) {
         state.fetchingAllItems = false;
     },
+
+    /**
+     * remove a video id from the selected videos list
+     * @param state
+     * @param videoId
+     */
+    [types.DESELECT_VIDEO](state, videoId) {
+        const index = state.selectedVideos.indexOf(videoId);
+
+        if (index === -1) {
+            throw new Error(`Video '${videoId}' is not selected`);
+        }
+
+        state.selectedVideos.splice(index, 1);
+    },
+    /**
+     * Add a video id to the selected videos list
+     * @param state
+     * @param videoId
+     */
+    [types.SELECT_VIDEO](state, videoId) {
+        state.selectedVideos.push(videoId);
+    },
 }
