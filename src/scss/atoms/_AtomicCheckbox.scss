@@ -1,0 +1,58 @@
+.AtomicCheckbox {
+    position: relative;
+    overflow: hidden;
+
+    input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+
+    &__mark {
+        display: block;
+        background-color: $custom-control-indicator-bg;
+
+        @include border-radius($custom-checkbox-indicator-border-radius);
+
+        width: $custom-control-indicator-size;
+        height: $custom-control-indicator-size;
+
+        &:after {
+            display: block;
+            width: $custom-control-indicator-size;
+            height: $custom-control-indicator-size;
+            content: "";
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: $custom-control-indicator-bg-size;
+        }
+    }
+
+    input:checked ~ &__mark {
+        background-color: $primary;
+    }
+
+    input:checked ~ &__mark {
+        @include gradient-bg($custom-control-indicator-checked-bg);
+
+        &::after {
+            background-image: $custom-checkbox-indicator-icon-checked;
+        }
+    }
+
+    input:indeterminate ~ &__mark {
+        @include gradient-bg($custom-checkbox-indicator-indeterminate-bg);
+        @include box-shadow($custom-checkbox-indicator-indeterminate-box-shadow);
+
+        &::after {
+            background-image: $custom-checkbox-indicator-icon-indeterminate;
+        }
+    }
+
+    input:disabled:checked ~ &__mark {
+        background-color: $custom-control-indicator-checked-disabled-bg;
+    }
+    input:disabled:indeterminate ~ &__mark {
+        background-color: $custom-control-indicator-checked-disabled-bg;
+    }
+}
