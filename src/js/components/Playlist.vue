@@ -1,26 +1,30 @@
 <template>
     <section class="Playlist">
-        <section class="Playlist__items">
-            <video-item v-for="video in videos" :video="video" :key="video.id"></video-item>
-        </section>
+        <playlist-header class="Playlist__header" />
 
-        <footer class="Playlist__footer" v-if="canLoadMore">
-            <atomic-button class="btn-outline-primary btn-sm"
-                           :disabled="fetchingItems"
-                           :activity="fetchingItems && !fetchingAllItems"
-                           @click="loadNextPage"
-            >
-                Load more entries
-            </atomic-button>
-            or
-            <atomic-button class="btn-outline-dark btn-sm"
-                           :disabled="fetchingItems"
-                           :activity="fetchingAllItems"
-                           @click="loadAllPages"
-            >
-                Load all entries
-            </atomic-button>
-        </footer>
+        <div class="Playlist__scroller">
+            <section class="Playlist__items">
+                <video-item v-for="video in videos" :video="video" :key="video.id"></video-item>
+            </section>
+
+            <footer class="Playlist__footer" v-if="canLoadMore">
+                <atomic-button class="btn-outline-primary btn-sm"
+                               :disabled="fetchingItems"
+                               :activity="fetchingItems && !fetchingAllItems"
+                               @click="loadNextPage"
+                >
+                    Load more entries
+                </atomic-button>
+                or
+                <atomic-button class="btn-outline-dark btn-sm"
+                               :disabled="fetchingItems"
+                               :activity="fetchingAllItems"
+                               @click="loadAllPages"
+                >
+                    Load all entries
+                </atomic-button>
+            </footer>
+        </div>
     </section>
 </template>
 
@@ -31,6 +35,7 @@
     import * as videosGetters from '../store/videos/types/getters';
     import AtomicButton from '../atoms/AtomicButton';
     import VideoItem from './VideoItem';
+    import PlaylistHeader from './PlaylistHeader';
 
     const { mapGetters, mapActions } = createNamespacedHelpers(storeModules.VIDEOS);
 
@@ -39,6 +44,7 @@
         components: {
             VideoItem,
             AtomicButton,
+            PlaylistHeader,
         },
 
         computed: {
