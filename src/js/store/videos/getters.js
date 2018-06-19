@@ -1,4 +1,6 @@
+import * as moduleTypes from '../types/modules';
 import * as types from './types/getters';
+import * as playlistsGetters from './types/getters';
 
 export default {
     /**
@@ -29,5 +31,18 @@ export default {
 
     [types.IS_SELECTED_GETTER](state) {
         return (videoId) => (state.selectedVideos.indexOf(videoId) !== -1)
+    },
+
+    [types.PLAYLIST_TITLE](state, getters, rootState, rootGetters) {
+        const { playlistId } = rootState.route.params;
+        const items = rootGetters[`${moduleTypes.PLAYLISTS}/${playlistsGetters.ITEMS}`];
+
+        const playlist = items.filter((playlist) => playlist.id === playlistId)[0];
+
+        if (!playlist) {
+            return;
+        }
+
+        return playlist.snippet.title;
     },
 }
