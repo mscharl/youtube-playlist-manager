@@ -41,11 +41,11 @@
         },
 
         /**
-         * On mount calculate the fixed elements height.
+         * On component update calculate the fixed elements height.
          */
-        mounted() {
+        updated() {
             const { height } = this.$refs.content.getBoundingClientRect();
             this.contentHeight = height;
-        },
+        }
     }
 </script>
