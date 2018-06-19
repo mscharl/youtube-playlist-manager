@@ -1,13 +1,4 @@
 .Playlist {
-    display: flex;
-    flex-direction: column;
-
-    height: 100%;
-
-    &__scroller {
-        flex: 1 1 100%;
-        overflow: auto;
-    }
 
     &__footer {
         padding: .625em;

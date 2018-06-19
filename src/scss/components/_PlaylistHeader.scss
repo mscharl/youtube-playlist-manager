@@ -1,3 +1,15 @@
 .PlaylistHeader {
-    padding: .625rem .375rem;
+    padding: 1.6rem 1rem;
+    border-bottom: 1px solid $border-color;
+
+    background-color: $youtube-white;
+
+    @supports (backdrop-filter: blur(3px)) {
+        backdrop-filter: blur(3px);
+        background-color: rgba($youtube-white, .8);
+    }
+
+    &__wrapper {
+        z-index: 1;
+    }
 }
