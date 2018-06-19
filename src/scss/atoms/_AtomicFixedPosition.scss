@@ -1,0 +1,11 @@
+.AtomicFixedPosition {
+    position: relative;
+
+    &__content {
+        width: 100%;
+
+        &.--fixed {
+            position: fixed;
+        }
+    }
+}
